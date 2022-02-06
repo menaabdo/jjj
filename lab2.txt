@@ -1,0 +1,23 @@
+Create a Full CRUD operations for a small blog system which contains:
+1- Categories: 
+    - id
+    - name
+2- Articles:
+    - id
+    - name 
+    - details
+    - slug (unique)
+    - is_used (bool)
+
+Each category may have multiple Articles, and each article must belonges to a specific 
+category.
+
+Notes:
+- Creating DB tables with migrations is a MUST.
+- Follow Laravel naming conventions when nameing the files and tables.
+- use the route naming methodologies on your routes file.
+- search about CSRF token.
+
+Bonus:
+- on category show page, show the category details and its related Article topics.
+- Add the validation on frontend forms and backend controllers.
