@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \App\Http\Requests\StorePostRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -21,8 +21,10 @@ class CategoryController extends Controller
         return view('category.create');
     }
 
-    public function save(Request $request)
-    {
+    public function save(StorePostRequest  $request)
+     {  $old=$request->name;
+         $request->validated();
+         
         $category = new Category;
         $category -> name = $request -> name;
         $category->save(); // INSERT INTO TABLE 

@@ -24,6 +24,7 @@ tr:nth-child(even) {
 <h2>Categories Table</h2>
 <h2>Create Category <a href="/create">here</a></h2>
 <h2>show all products <a href="/show">here</a></h2>
+
 <table>
   <tr>
     <th>Id</th>
@@ -34,11 +35,28 @@ tr:nth-child(even) {
   @foreach ($categories as $category)
   <tr>
     <td>{{ $category->id }}</td>
-    <td><a href="/showitem/{{$category -> id}}">{{ $category-> name }}</a></td>
-    <td><a href="/edit/{{$category -> id}}">update</a></td>
-   
-     
-    <td><a href="/delete/{{ $category -> id }}">Delete </a></td>
+    <td>
+      <a href="/showitem/{{$category -> id}}">{{ $category-> name }}</a></td>
+    <td>
+      <!-- <a href="/edit/{{$category -> id}}">update</a></td> -->
+      <form method="POST" action="/edit/{{$category -> id}}">
+              @csrf
+              <input type="hidden" name="_method" value="put">
+              <button type="submit" class="btn btn-danger btn-icon">
+               update
+              </button>
+            </form>
+</td>  
+    <td>
+    <form method="POST" action="/delete/{{ $category -> id }}">
+              @csrf
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn btn-danger btn-icon">
+               delete
+              </button>
+            </form>
+      <!-- <a href="/delete/{{ $category -> id }}">Delete </a> -->
+    </td>
   </tr>
   @endforeach
 

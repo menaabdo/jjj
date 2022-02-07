@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ItemController;
+// use App\Http\Controllers\ItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,9 +20,9 @@ Route::get('/', function () {
 
 Route::get('/cats',[CategoryController::class, 'list'])->name('categories.list');
 Route::get('/create', [CategoryController::class, 'create']);
-Route::get('/cats/save', [CategoryController::class, 'save'])->name('categories.save');
-Route::get('/delete/{id}', [CategoryController::class, 'delete']);
+Route::post('/cats/save', [CategoryController::class, 'save'])->name('categories.save');
+Route::delete('/delete/{id}', [CategoryController::class, 'delete']);
 Route::get('/edit/{id}', [CategoryController::class, 'edit']);
-Route::get('/update',[CategoryController::class, 'update']);
-Route::get('/show',[ItemController::class, 'show']);
-Route::get('/showitem/{id}',[ItemController::class, 'showItem']);
+Route::put('/update',[CategoryController::class, 'update']);
+// Route::get('/show',[ItemController::class, 'show']);
+// Route::get('/showitem/{id}',[ItemController::class, 'showItem']);

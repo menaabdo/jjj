@@ -21,19 +21,21 @@ tr:nth-child(even) {
 </head>
 <body>
 
-<h2>Categories Table</h2>
+<h2>Items Table</h2>
 
 <table>
   <tr>
     <th>Id</th>
     <th>Name</th>
-    <th>Action1</th>
-    <th>Action2</th>
+    <!-- <th>Action1</th>
+    <th>Action2</th> -->
+    <th>Description</th>
   </tr>
   @foreach ($items as $item)
   <tr>
     <td>{{ $item->id }}</td>
     <td>{{ $item-> name }}</td>
+    <td>{{ $item-> des }}</td>
     <!-- <td><a href="/edit/{{$item -> id}}">update</a></td>
    
      
