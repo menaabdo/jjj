@@ -23,7 +23,7 @@ tr:nth-child(even) {
 <body>
 
 <h2>Categories Table</h2>
-<h2>All products From {{$cat[0]->name}}</h2>
+<h2>All products From {{$items[0]->category->name}}</h2>
 <table>
   <tr>
     <th>Id</th>

@@ -30,12 +30,14 @@ tr:nth-child(even) {
     <!-- <th>Action1</th>
     <th>Action2</th> -->
     <th>Description</th>
+    <th>show category</th>
   </tr>
   @foreach ($items as $item)
   <tr>
     <td>{{ $item->id }}</td>
     <td>{{ $item-> name }}</td>
     <td>{{ $item-> des }}</td>
+    <td>{{ $item->category->name }}</td>
     <!-- <td><a href="/edit/{{$item -> id}}">update</a></td>
    
      

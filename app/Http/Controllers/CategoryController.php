@@ -10,7 +10,7 @@ class CategoryController extends Controller
     public function list()
     {
         // get list of the cateories 
-        $categories = Category::all(); // SELECT * from categories;
+        $categories = Category::paginate(5); // SELECT * from categories;
         $cat = Category::find(1);
         // $cat -> any_field_name = 'any value';
         return view('category.list',['categories'=>$categories ]);

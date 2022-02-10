@@ -24,7 +24,7 @@ tr:nth-child(even) {
 <h2>Categories Table</h2>
 <h2>Create Category <a href="/create">here</a></h2>
 <h2>show all products <a href="/show">here</a></h2>
-
+<h2><a href="{{ route('register') }}">Regist</a></h2>
 <table>
   <tr>
     <th>Id</th>
@@ -61,6 +61,6 @@ tr:nth-child(even) {
   @endforeach
 
 </table>
-
+<p>{{$categories->links()}}</P>
 </body>
 </html>
