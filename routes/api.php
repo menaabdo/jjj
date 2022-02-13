@@ -1,8 +1,10 @@
+
 <?php
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Category;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/update', [CategoryController::class, 'updateapi']);
+Route::post('/save', [CategoryController::class, 'saveapi']);
+Route::get('/delete/{slug}', [CategoryController::class, 'deleteapi']);
+Route::get('cats',[CategoryController::class, 'listapi'])->name('categories.list');

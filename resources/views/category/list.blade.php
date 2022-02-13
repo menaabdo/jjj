@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <style>
 table {
   font-family: arial, sans-serif;
@@ -36,7 +41,7 @@ tr:nth-child(even) {
   <tr>
     <td>{{ $category->id }}</td>
     <td>
-      <a href="/showitem/{{$category -> id}}">{{ $category-> name }}</a></td>
+      <a href="/showitem/{{$category->id}}">{{ $category-> name }}</a></td>
     <td>
       <!-- <a href="/edit/{{$category -> id}}">update</a></td> -->
       <form method="POST" action="/edit/{{$category -> id}}">
@@ -48,9 +53,9 @@ tr:nth-child(even) {
             </form>
 </td>  
     <td>
-    <form method="POST" action="/delete/{{ $category -> id }}">
+    <form method="post" action="/delete/{{ $category -> id }}">
               @csrf
-              <input type="hidden" name="_method" value="DELETE">
+              <input type="hidden" name="_method" value="post">
               <button type="submit" class="btn btn-danger btn-icon">
                delete
               </button>

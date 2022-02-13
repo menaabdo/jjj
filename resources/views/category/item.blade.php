@@ -36,7 +36,7 @@ tr:nth-child(even) {
   <tr>
     <td>{{ $item->id }}</td>
     <td>{{ $item-> name }}</td>
-    <td>{{ $item-> des }}</td>
+    <td>{!! $item-> des !!}</td>
     <td>{{ $item->category->name }}</td>
     <!-- <td><a href="/edit/{{$item -> id}}">update</a></td>
    

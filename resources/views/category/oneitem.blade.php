@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 <style>
 table {
   font-family: arial, sans-serif;
@@ -23,25 +29,29 @@ tr:nth-child(even) {
 <body>
 
 <h2>Categories Table</h2>
-<h2>All products From {{$items[0]->category->name}}</h2>
+<h2>All products From {{$items[0]->name}}</h2>
 <table>
   <tr>
     <th>Id</th>
     <th>Name</th>
     <th>description</th>
+    <th>category</th>
+    <th>update</th>
+    <th>delete</th>
     
   </tr>
   @foreach ($items as $item)
   <tr>
    
     <td>{{ $item->id }}</td>
-    <td>{{ $item-> name }}</td>
-    <td>{{ $item-> des }}</td>
-    <!-- <td><a href="/edit/{{$item -> id}}">update</a></td>
-   <td>{{ $item-> name }}</td>
+    <td>{!! $item-> name !!}</td>
+    <td>{!! $item-> des !!}</td>
+    <td>{{ $item-> category->name }}</td>
+     <td><a href="/edit/{{$item -> id}}">update</a></td>
+   
      
     <td><a href="/delete/{{ $item -> id }}">Delete </a></td>
-  </tr> -->
+  </tr> 
   @endforeach
 
 </table>

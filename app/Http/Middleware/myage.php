@@ -17,7 +17,7 @@ class myage
     public function handle(Request $request, Closure $next)
     {$bd=auth()->user()->birthd;
         $age=\Carbon\Carbon::parse($bd)->age;
-        if($age>20)
+        if($age<30)
         return $next($request);
         else return redirect()->route('categories.list');
     }
