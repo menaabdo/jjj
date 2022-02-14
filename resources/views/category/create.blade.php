@@ -10,19 +10,16 @@
 <body>
     <h1>Create new Category </h1>
     <div>
-    <form method="post" action="{{  route('categories.save') }}">
+    <form method="post" action="{{  route('categories.save') }}" enctype="multipart/form-data">
     @csrf
          <label>category of name</label>
          <input type="text" name="name"  value="{{ old('name') }} "  >
-        @if ($errors->has('name'))
+         @error('name')
+            <li style='display:inline'>{{ $message }}</li>
+            @enderror
+         
+         Image: <input type="file" name="category_name">
         
-    <div style='color: red'>
-        <ul>
-            @foreach ($errors->get('name') as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+    
         <input type='submit' value='Save'></input>
         <div>

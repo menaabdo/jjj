@@ -25,8 +25,16 @@ class StorePostRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required|unique:categories|max:255'
+            'name' => 'required|unique:categories|max:255',
+           
         ];
     }
+    public function messages()
+{
+    return [
+        'name.required' => 'mena mena mena',
+       
+    ];
+}
     
 }

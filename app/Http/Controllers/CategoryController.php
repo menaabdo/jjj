@@ -60,13 +60,25 @@ class CategoryController extends Controller
      {  
          $request->validated();
          
-        $category = new Category;
-        $category -> name = $request -> name;
-        $category->save(); // INSERT INTO TABLE 
-        
-         return redirect()->route('categories.list');
-        // save new category
-    }
+         $category = new Category;
+         $category -> name = $request['name'];
+         $category->save();
+ 
+         $category=Category::all()->last();
+         $category= Category::find($category->id);
+         $category
+ 
+    ->addMediaFromRequest('category_name')
+    ->toMediaCollection();
+ 
+         // $category = new Category;
+         // $category -> name = $request['name'];
+         // $category->save(); // INSERT INTO TABLE 
+            
+         return redirect()->route('category.list');
+ 
+         // save new category
+     }
 
     public function delete($slug)
     {  
